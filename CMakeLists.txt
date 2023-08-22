@@ -10,6 +10,8 @@ add_executable(AlexPetrucci_ICTPRG302 main.cpp "Game.h" "config.h" "Game.cpp"   
 
 target_link_libraries(AlexPetrucci_ICTPRG302 sfml-graphics sfml-window sfml-system)
 
-add_custom_command(TARGET AlexPetrucci_ICTPRG302 POST_BUILD
-    COMMAND "${CMAKE_CURRENT_SOURCE_DIR}\\postBuild.bat"
-)
+if (WIN32)
+    add_custom_command(TARGET AlexPetrucci_ICTPRG302 POST_BUILD
+        COMMAND "${CMAKE_CURRENT_SOURCE_DIR}\\postBuild.bat"
+    )
+endif()
